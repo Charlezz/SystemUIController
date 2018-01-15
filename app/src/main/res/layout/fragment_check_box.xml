@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <CheckBox
+        android:id="@+id/check_fullscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="SYSTEM_UI_FLAG_FULLSCREEN"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/check_hide_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_HIDE_NAVIGATION"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_fullscreen" />
+
+    <CheckBox
+        android:id="@+id/check_immersive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_IMMERSIVE"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_hide_navigation" />
+
+    <CheckBox
+        android:id="@+id/check_immersive_sticky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_IMMERSIVE_STICKY"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_immersive" />
+
+    <CheckBox
+        android:id="@+id/check_layout_fullscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_immersive_sticky" />
+
+    <CheckBox
+        android:id="@+id/check_layout_hide_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_layout_fullscreen" />
+
+    <CheckBox
+        android:id="@+id/check_layout_stable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_LAYOUT_STABLE"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_layout_hide_navigation" />
+
+    <CheckBox
+        android:id="@+id/check_light_navigation_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_layout_stable" />
+
+    <CheckBox
+        android:id="@+id/check_light_status_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_LIGHT_STATUS_BAR"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_light_navigation_bar" />
+
+
+    <CheckBox
+        android:id="@+id/check_low_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM_UI_FLAG_LOW_PROFILE"
+        app:layout_constraintLeft_toLeftOf="@id/check_fullscreen"
+        app:layout_constraintTop_toBottomOf="@id/check_light_status_bar" />
+
+
+</android.support.constraint.ConstraintLayout>
