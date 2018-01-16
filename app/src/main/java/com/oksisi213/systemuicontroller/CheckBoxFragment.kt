@@ -16,7 +16,9 @@ import kotlinx.android.synthetic.main.fragment_check_box.view.*
  * Created by Charles on 15/01/2018.
  */
 
-class CheckBoxFragment : Fragment() {
+class CheckBoxFragment : Fragment(), MyWindowFocusChangeListener {
+
+
 	val TAG = CheckBoxFragment::class.java.simpleName
 
 	companion object {
@@ -48,8 +50,10 @@ class CheckBoxFragment : Fragment() {
 			add(Pair(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION, checkLayoutHideNavigation))
 			add(Pair(View.SYSTEM_UI_FLAG_LAYOUT_STABLE, checkLayoutStable))
 
-			add(Pair(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR, checkLightNavigationBar))
-			add(Pair(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR, checkLightStatusBar))
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				add(Pair(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR, checkLightNavigationBar))
+				add(Pair(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR, checkLightStatusBar))
+			}
 			add(Pair(View.SYSTEM_UI_FLAG_LOW_PROFILE, checkLowProfile))
 		}
 	}
@@ -69,7 +73,7 @@ class CheckBoxFragment : Fragment() {
 		checkLightStatusBar = view.check_light_status_bar
 		checkLowProfile = view.check_low_profile
 
-		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
 			checkLightNavigationBar.isEnabled = false
 			checkLightStatusBar.isEnabled = false
 		}
@@ -118,11 +122,13 @@ class CheckBoxFragment : Fragment() {
 			if (checkLayoutStable.isChecked) {
 				flags = flags or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 			}
-			if (checkLightNavigationBar.isChecked) {
-				flags = flags or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
-			}
-			if (checkLightStatusBar.isChecked) {
-				flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				if (checkLightNavigationBar.isChecked) {
+					flags = flags or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+				}
+				if (checkLightStatusBar.isChecked) {
+					flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+				}
 			}
 			if (checkLowProfile.isChecked) {
 				flags = flags or View.SYSTEM_UI_FLAG_LOW_PROFILE
@@ -131,6 +137,8 @@ class CheckBoxFragment : Fragment() {
 			activity?.window?.decorView?.systemUiVisibility = flags
 
 		}
+	}
 
+	override fun onWindowFocusChanged(hasFocus: Boolean) {
 	}
 }
